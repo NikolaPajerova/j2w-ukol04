@@ -4,6 +4,7 @@ import cz.czechitas.java2webapps.ukol3.entity.Vizitka;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -100,18 +101,24 @@ public class VizitkaController {
     return result;
   }
 
-  @GetMapping(path = "/nova")
-  public ModelAndView nova(Vizitka novaVizitka){ //String nova(Vizitka novaVizitka) {
+  @GetMapping("/nova")
+  public ModelAndView nova(Vizitka novaVizitka){
     seznamVizitek.add(novaVizitka);
     ModelAndView result = new ModelAndView("formular");
     result.addObject("seznam", seznamVizitek);
     return result;
-    //return "redirect:/";
   }
 
-  @PostMapping("/nova")
-  public String append(Vizitka novaVizitka) {
-    seznamVizitek.add(novaVizitka);
+  @PostMapping(value = "/nova", params = {"jmeno", "firma", "ulice", "obecPsc", "email", "telefon", "web"})
+  public String pridat(Vizitka novinka) {
+    seznamVizitek.add(novinka);
     return "redirect:/";
   }
+
+  @PostMapping(value = "/", params = {"id"})
+  public String vymazani(@RequestParam int id) {
+    seznamVizitek.remove(id);
+    return "redirect:/";
+  }
+
 }
