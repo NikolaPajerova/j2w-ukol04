@@ -102,8 +102,7 @@ public class VizitkaController {
   }
 
   @GetMapping("/nova")
-  public ModelAndView nova(Vizitka novaVizitka){
-    seznamVizitek.add(novaVizitka);
+  public ModelAndView nova(){
     ModelAndView result = new ModelAndView("formular");
     result.addObject("seznam", seznamVizitek);
     return result;
@@ -115,7 +114,7 @@ public class VizitkaController {
     return "redirect:/";
   }
 
-  @PostMapping(value = "/", params = {"id"})
+  @PostMapping("/")
   public String vymazani(@RequestParam int id) {
     seznamVizitek.remove(id);
     return "redirect:/";

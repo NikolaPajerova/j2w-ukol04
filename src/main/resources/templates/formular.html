@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="vizitka--nova">
-    <form action="row g-3" th:action="@{/nova}" method="get">
+    <form action="row g-3" th:action="@{/nova}" method="post">
         <div class="col-md-4">
             <label for="daneJmeno">Zadejte jméno: </label>
             <input id="daneJmeno" name="jmeno" type="text">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-md-1 align-self-end">
-            <button type="submit" class="btn btn-primary"><i class="bi-person-plus-fill" role="img" aria-label="Zadat">Zadat</i></button>
+            <button type="submit" class="btn btn-primary"><i class="bi-person-plus-fill" role="img" aria-label="Assign">Zadat</i></button>
         </div>
     </form>
 </div>
