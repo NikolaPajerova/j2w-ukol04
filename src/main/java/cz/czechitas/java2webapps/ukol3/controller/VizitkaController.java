@@ -101,12 +101,12 @@ public class VizitkaController {
   }
 
   @GetMapping(path = "/nova")
-  public ModelAndView nova(){ //String nova(Vizitka novaVizitka) {
+  public ModelAndView nova(Vizitka novaVizitka){ //String nova(Vizitka novaVizitka) {
+    seznamVizitek.add(novaVizitka);
     ModelAndView result = new ModelAndView("formular");
-   // seznamVizitek.add(novaVizitka);
-   // return "redirect:/";
     result.addObject("seznam", seznamVizitek);
     return result;
+    //return "redirect:/";
   }
 
   @PostMapping("/nova")
