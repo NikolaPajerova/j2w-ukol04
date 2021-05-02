@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="vizitka--nova">
-    <form action="row g-3" th:action="@{/nova}" method="post">
+    <form action="row g-3" th:action="@{/nova}" method="get">
         <div class="col-md-4">
             <label for="daneJmeno">Zadejte jméno: </label>
             <input id="daneJmeno" name="jmeno" type="text">
@@ -39,7 +39,7 @@
 
         <div class="col-md-2">
             <label for="mobil">Telefon: </label>
-            <input id="mobil" name="telefon" type="number">
+            <input id="mobil" name="telefon" type="text">
         </div>
 
         <div class="col-md-2">
