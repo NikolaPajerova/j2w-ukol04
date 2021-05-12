@@ -114,7 +114,7 @@ public class VizitkaController {
     return "redirect:/";
   }
 
-  @PostMapping("/")
+  @PostMapping("/vymazani")
   public String vymazani(@RequestParam int id) {
     seznamVizitek.remove(id);
     return "redirect:/";
