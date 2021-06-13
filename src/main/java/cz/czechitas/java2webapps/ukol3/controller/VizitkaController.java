@@ -97,6 +97,7 @@ public class VizitkaController {
   @GetMapping(path = "/detail", params = "id")
   public ModelAndView detail(int id) {
     ModelAndView result = new ModelAndView("detail");
+    result.addObject("id", id);
     result.addObject("vizitka", seznamVizitek.get(id));
     return result;
   }
@@ -114,7 +115,7 @@ public class VizitkaController {
     return "redirect:/";
   }
 
-  @PostMapping("/vymazani")
+  @PostMapping(value = "/vymazani", params = "id")
   public String vymazani(@RequestParam int id) {
     seznamVizitek.remove(id);
     return "redirect:/";
